@@ -1,0 +1,59 @@
+servers = {
+  "aks_test" = {
+    create_resource         = true
+    cluster_name            = "rg-sbxuat-shr-nprd-aks"
+    cluster_location        = "uksouth"
+    kubernetes_version      = "1.26.3"
+    private_cluster_enabled = true
+    vnet_rg_name            = "rg-sbxuat-shr-nprd-net"
+    virtual_network_name    = "vnet-uks1-sbxuat-shr-nprd-01"
+    vnet_subnet_id          = "snet-uks-hub-shr-nprd-aks"
+    system_nodepool_name    = "npsytem"
+    vm_size                 = "Standard_D2_v2"
+    node_availability_zones = ["1", "2", "3"]
+    enable_auto_scaling     = true
+    enable_node_public_ip   = false
+    os_disk_size_gb         = 30
+    node_min_count          = 1
+    node_max_count          = 10
+    node_max_pods           = 70
+    VirtualMachineScaleSets = "VirtualMachineScaleSets"
+    os_disk_type            = "Ephemeral"
+    kubelet_disk_type       = "OS"
+    os_sku                  = "Ubuntu"
+    enable_rbac             = true
+    enable_aad_auth         = true
+    #Assigned                = "UserAssigned"
+    #user_assigned_ids = null
+    acr_scope = "/subscriptions/1012c374-51ed-45fc-a38a-43e668b6c1ef/resourceGroups/hub-bicep-registry/providers/Microsoft.ContainerRegistry/registries/acruks1bicepprd01"
+
+  },
+  "aks_test1" = {
+    create_resource         = false
+    cluster_name            = "rg-sbxuat-shr-nprd-aks1"
+    cluster_location        = "uksouth"
+    kubernetes_version      = "1.26.3"
+    private_cluster_enabled = true
+    vnet_rg_name            = "rg-sbxuat-shr-nprd-net"
+    virtual_network_name    = "vnet-uks1-sbxuat-shr-nprd-01"
+    vnet_subnet_id          = "snet-uks-hub-shr-nprd-aks"
+    system_nodepool_name    = "npsytem"
+    vm_size                 = "Standard_D2_v2"
+    node_availability_zones = ["1", "2", "3"]
+    enable_auto_scaling     = true
+    enable_node_public_ip   = false
+    os_disk_size_gb         = 30
+    node_min_count          = 1
+    node_max_count          = 10
+    node_max_pods           = 70
+    VirtualMachineScaleSets = "VirtualMachineScaleSets"
+    os_disk_type            = "Ephemeral"
+    kubelet_disk_type       = "OS"
+    os_sku                  = "Ubuntu"
+    enable_rbac             = true
+    enable_aad_auth         = true
+    #Assigned                = "UserAssigned"
+    acr_scope = "/subscriptions/1012c374-51ed-45fc-a38a-43e668b6c1ef/resourceGroups/hub-bicep-registry/providers/Microsoft.ContainerRegistry/registries/acruks1bicepprd01"
+
+  }
+}
